@@ -1,0 +1,23 @@
+<div class="pre-loader" *ngIf="isLoading">
+    <img src="assets/images/circles.svg" alt="" />
+  </div>
+<div class="tags">
+    <h3>Categories</h3>
+    <ul class="tags__list">
+      <li *ngFor="let category of categories"><a [routerLink]="['', category]" routerLinkActive="active" (click)="searchByImagesCategory(category)">{{category}}</a></li>
+      <li><a [routerLink]="['']">All</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let image of images" class="col-4">
+            <div class="img-box">
+                <img [attr.src]="image.images.original.url" src=""/>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success mt-5 load-btn" (click)="loadMoreImages()">Load more</button>
+    </div>
+</div>
+
